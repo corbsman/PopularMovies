@@ -5,8 +5,6 @@ import android.arch.persistence.room.PrimaryKey;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
 @Entity
 public class Movie {
 
@@ -38,9 +36,6 @@ public class Movie {
         @SerializedName("original_title")
         @Expose
         private String originalTitle;
-//        @SerializedName("genre_ids")
-//        @Expose
-//        private List<Integer> genreIds = null;
         @SerializedName("backdrop_path")
         @Expose
         private String backdropPath;
@@ -125,14 +120,6 @@ public class Movie {
         public void setOriginalTitle(String originalTitle) {
             this.originalTitle = originalTitle;
         }
-
-//        public List<Integer> getGenreIds() {
-//            return genreIds;
-//        }
-//
-//        public void setGenreIds(List<Integer> genreIds) {
-//            this.genreIds = genreIds;
-//        }
 
         public String getBackdropPath() {
             return backdropPath;

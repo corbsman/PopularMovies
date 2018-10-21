@@ -12,25 +12,29 @@ import java.util.Scanner;
 public class NetworkUtils {
 
 
-    final static String THE_MOVIE_DB_URL = "";// TODO: 9/3/18 add API key here
+    final static String THE_MOVIE_DB_URL = "http://api.themoviedb.org/3";
 
-    final static String PARAM_QUERY = "movie/popular?api_key=";
+    final static String MOST_POPULAR_PARAM_QUERY = "/movie/popular?api_key=";
+    final static String TOP_RATED_PARAM_QUERY = "/movie/top_rated?api_key=";
 
-    /*
-     * The sort field. One of stars, forks, or updated.
-     * Default: results are sorted by best match if no field is specified.
-     */
-    final static String API_KEY = "ad3c8a5bdb7159335c4769485edb3bec";
-//    final static String sortBy = "stars";
+    final static String API_KEY = "";
 
     /**
-     * Builds the URL used to query GitHub.
+     * Builds the URL for the Movie Database
      *
+     *  EXAMPLE: http://api.themoviedb.org/3/movie/popular?api_key=[YOUR_API_KEY]
      *
-     * @return The URL to use to query the GitHub.
+     * @return The URL to use to query to the Movie Database.
      */
-    public static URL buildUrl() {
-        Uri builtUri = Uri.parse(THE_MOVIE_DB_URL).buildUpon().build();
+    public static URL buildUrl(SearchType searchType) {
+
+        Uri builtUri;
+        if (searchType.equals(SearchType.TOP_RATED)) {
+            builtUri = Uri.parse(THE_MOVIE_DB_URL + TOP_RATED_PARAM_QUERY + API_KEY).buildUpon().build();
+        }
+        else {
+            builtUri = Uri.parse(THE_MOVIE_DB_URL + MOST_POPULAR_PARAM_QUERY + API_KEY).buildUpon().build();
+        }
 
         URL url = null;
         try {

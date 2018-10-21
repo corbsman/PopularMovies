@@ -1,31 +1,15 @@
 package com.popularmovies.popularmovies;
 
 import android.annotation.SuppressLint;
-
-import android.arch.lifecycle.LiveData;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.popularmovies.popularmovies.Model.Movie;
-import com.popularmovies.popularmovies.Model.MovieCollection;
-
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
-
-
-    MovieCollection movieCollection = null;
-//    private final String MOVIE_COLLECTION = "movie_collection";  //todo remove this
-    private LiveData<List<Movie>> moviesLiveData;
-
-
-//OnSavedInstanceState put movie collection into the saved instance state to the bundle
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-//        outState.putParcelable(MOVIE_COLLECTION, movieCollection);
         super.onSaveInstanceState(outState);
     }
 
@@ -48,14 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-//
-//
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
